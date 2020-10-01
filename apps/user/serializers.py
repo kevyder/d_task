@@ -3,7 +3,7 @@ from rest_framework import serializers
 
 
 class UserSerializer(serializers.ModelSerializer):
-    """ User serializer """
+    """User serializer"""
 
     password = serializers.CharField(write_only=True)
 
@@ -17,7 +17,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class AuthTokenSerializer(serializers.Serializer):
-    """ Authorization token serializer """
+    """Authorization token serializer"""
 
     email = serializers.CharField()
     password = serializers.CharField(style={"input_type": "password"}, trim_whitespace=False)
