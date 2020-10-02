@@ -1,15 +1,14 @@
 language: python
-# python versions
 python:
-  - "3.8.2"
+- 3.8.2
 env:
-  -DJANGO=3.1.1 DB=sqlite3
+  matrix:
+  - "-DJANGO=3.1.1 DB=sqlite3"
+  global:
+    secure: nCpUXnAEhS0ojRzyx7CyGqg9uAbsislpcHucQkqtYFEUAD4E0VfD0Mofq1IiqicInQoKJveNB/LhfET3vhBOHGEXC2MwpO7AmO1b8sAHNoJaOXtwhheGuxr1pO/DVMKLy6/IpXvzMB7hqokrUXTTKrHYgf/FBfggExj6Tb6m77glgYWDsbXff1OO6wi3R8dOLQBLSG79yQlm34k8XH/QuHl9bxoEiDV2pW65VsVnv6qGdhbypxqoEXXMmuBGGiTPlYb2RcOYRA1EXjiz1aJKbmblmxgfbR+cxRttnIRh3dG01zQq0flFthdynHDhBEoswZp3Nxuv5XwJhvbURdSDQRwyrkq2F8AWwB4ljVxKOc+TL/GQ0Y6qqEpRuqtHgh3q138/jno486ww3H/yc1P28tMuQWmYzoDoSHOMSN9zUiRdOWtAFYEJ2Yy20OqXB+L8KPa6w0u9NT49LJnyb+QIyz7/N0QDLek4Xrk2cm3O38dQ7dDhh+FxlFsCIWEKb4s7AK7Wfk4OfuD9OLxx7m4IEd/zW1cSSSQd4sIuszY3PdboU4lQb+YZ/C0wC22HmW2f0Cn9Cw23vwVw2P2TPW8FkZxdXnZlV2WpAF748KWWd2HOKwiQiU2Up5blhvJpzDJJZ7iQgK4D8Qn+m2HKLqgoYSXV8HueQ9b48/kgbRoRpKc=
 install:
-  - pip install -r requirements.txt
-  - pip install coveralls
-# To run tests
+- pip install -r requirements.txt
+- pip install coveralls
 script:
-  - coverage run --source='.' manage.py test
-# send coverage report to coveralls
-after_success:
-  coveralls
+- coverage run --source='.' manage.py test
+after_success: coveralls
